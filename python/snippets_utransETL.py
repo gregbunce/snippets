@@ -27,30 +27,18 @@ elif classDomain == "" and row.CLASS is not None:
         
         
         
-#### BEGIN >>> VALIDATE AND PARSE STREETNAME VALUES ####
+#### BEGIN >>> CALL VALIDATE FUNCTIONS ####
 ## AN_NAME #
-# parses out '645 N' into the appropriate fields
-an_Name = row.CountyFieldName
+if row.ACS_NAME != "":
+    # call the validation function
+    an_Name, an_PostDir = Validate_AN_NAME(row.ACS_NAME)
+    # AN_NAME
+    row.AN_NAME = an_Name            
 
-if an_Name.isdigit():
-    # row.AN_NAME = an_Name
-    print an_Name
-else:
-    # check if any of the values are numeric (maybe they added the postdir in the field)
-    if any(char.isdigit() for char in an_Name):
-   		# parse the streetname
-        an_Name_split = an_Name.split(" ")
-        # see if there's more than one word
-        if len(an_Name_split) > 1:
-            # check if first word is numeric
-            if an_Name_split[0].isdigit():
-                # this is a valid AN_NAME
-                row.AN_NAME = anName_split[0]
-                print an_Name_split[0]
-                # check if second word is a valid AN_POSTDIR
-                an_POSTDIR = an_Name_split[1].upper()
-                if an_POSTDIR in ("N","S","E","W"):
-                    row.AN_POSTDIR = an_POSTDIR
-                    print an_POSTDIR
+    # AN_POSTDIR
+    if an_PostDir != "":
+        row.AN_POSTDIR = an_PostDir
+    else:
+        row.AN_POSTDIR = row.ACS_SUF
                     
-#### VALIDATE AND PARSE STREETNAME VALUES << END ####                    
+#### CALL VALIDATE FUNCTIONS << END ####                    
