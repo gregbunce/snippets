@@ -38,7 +38,7 @@ if an_Name.isdigit():
 else:
     # check if any of the values are numeric (maybe they added the postdir in the field)
     if any(char.isdigit() for char in an_Name):
-   		# parse the streetmname
+   		# parse the streetname
         an_Name_split = an_Name.split(" ")
         # see if there's more than one word
         if len(an_Name_split) > 1:
