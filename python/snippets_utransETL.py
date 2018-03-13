@@ -15,7 +15,7 @@ elif postTypeDomain == "" and len(row.S_TYPE) > 1:
 classDomain = GetCodedDomainValue(row.CLASS, dictOfValidRoadClass)
 if classDomain != "":
     row.DOT_FCLASS = classDomain
-elif classDomain == "" and len(row.CLASS) > 0:
+elif classDomain == "" and (row.CLASS is None or row.CLASS == ""):
     # add the CLASS they gave to the notes field so we can evaluate it
     row.UTRANS_NOTES = row.UTRANS_NOTES + "DOT_FCLASS: " + row.CLASS + "; "
     # add the bad domain value to the text file log
