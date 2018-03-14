@@ -1,5 +1,6 @@
 # look for blank spaces within a string/field, with no characters
-str.isspace()
+if str.isspace(): # contains space(s)
+if not str.isspace(): # does not contain space(s)
 
 # using 'in' within an 'if statement'
 if myVal in ("N","S","E","W"):
