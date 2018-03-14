@@ -1,12 +1,42 @@
-# look for blank spaces within a string/field, with no characters
+# using multi-line strings
+multiStr = "select * from multi_row \
+where row_id < 5"
+
+## look for blank spaces within a string/field, with no characters
 if str.isspace(): # contains space(s)
 if not str.isspace(): # does not contain space(s)
 
-# using 'in' within an 'if statement'
+## using 'in' within an 'if statement'
 if myVal in ("N","S","E","W"):
 
-# look for a digit within a string
+## look for a digit within a string
 if any(char.isdigit() for char in myString):
 
-# return tuple from function
+## return multiple values (tuple) from function
 returnVal1, returnVal2 = Function(param1,param2)
+
+## enumerate a list
+subjects = ('skiing', 'is', 'cool')
+for i, subject in enumerate(subjects):
+    print(i, subject)
+    
+## initialize an empty list (set)
+items = set()
+# Add three strings.
+items.add("biking")
+items.add("skiing")
+items.add("hiking")
+print(items)
+
+## create an immutable list (set)
+objects = {"biking", "skiing", "hiking", "boating"}
+print(len(objects))
+
+ # check if list (set) contains item
+ if "biking" in objects:
+ if "skiing" not in items:
+ 
+# inspect an Object and print it's props and methods
+test = [1, 3, 5, 7]
+print( dir(test) )
+
