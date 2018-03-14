@@ -9,4 +9,4 @@ if myVal in ("N","S","E","W"):
 if any(char.isdigit() for char in myString):
 
 # return tuple from function
-returnVal1, returnVal2 an_PostDir = Function(param1,param2)
+returnVal1, returnVal2 = Function(param1,param2)
