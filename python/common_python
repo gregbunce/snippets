@@ -1,0 +1,11 @@
+# look for blank spaces within a string/field, with no characters
+str.isspace()
+
+# using 'in' within an 'if statement'
+if myVal in ("N","S","E","W"):
+
+# look for a digit within a string
+if any(char.isdigit() for char in myString):
+
+# return tuple from function
+returnVal1, returnVal2 an_PostDir = Function(param1,param2)
