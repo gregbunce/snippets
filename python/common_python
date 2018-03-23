@@ -1,6 +1,11 @@
-# using multi-line strings
+## using multi-line strings
 multiStr = "select * from multi_row \
 where row_id < 5"
+
+## split string into array and get specific word/item
+split_string = string.split()
+first_word = split_string[0]
+last_word = split_string[-1]
 
 ## look for blank spaces within a string/field, with no characters
 if str.isspace(): # contains space(s)
