@@ -7,6 +7,12 @@ split_string = string.split()
 first_word = split_string[0]
 last_word = split_string[-1]
 
+## remove first word from string
+string = string.split(' ', 1)[1]
+
+## remove last word from string
+string = string.rsplit(' ', 1)[0]
+
 ## look for blank spaces within a string/field, with no characters
 if str.isspace(): # contains space(s)
 if not str.isspace(): # does not contain space(s)
