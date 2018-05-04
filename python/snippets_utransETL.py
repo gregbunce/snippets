@@ -2,6 +2,7 @@
 ValidateAssign_POSTTYPE(row, row.S_TYPE, countyNumber)
 ValidateAssign_DOT_FCLASS(row, row.S_AGFUNC, countyNumber) 
 ValidateAssign_DOT_SRFTYP(row, row.S_SURF, countyNumber)
+ValidateAssign_STATUS(row, row.Status, countyNumber)
 
 
 ## To parse out full address and check for validated and parsed values, call the function this way...
