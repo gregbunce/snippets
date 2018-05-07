@@ -1,26 +1,10 @@
 ## To validate fields with Domain values use the appropriate functions, such as....                
-ValidateAssign_POSTTYPE(row, row.S_TYPE, countyNumber)
-ValidateAssign_DOT_FCLASS(row, row.S_AGFUNC, countyNumber) 
-ValidateAssign_DOT_SRFTYP(row, row.S_SURF, countyNumber)
-ValidateAssign_STATUS(row, row.Status, countyNumber)
-
+# ValidateAndAssign_FieldValue(row, utrans_field_name, county_field_value, county_number, dict_of_valid_values)
+ValidateAndAssign_FieldValue(row, "POSTTYPE", row.STREETTYPE, countyNumber, dictOfValidPostTypes)
+ValidateAndAssign_FieldValue(row, "ONEWAY", row.ONEWAY_, countyNumber, dictOfValidOneWay)
+ValidateAndAssign_FieldValue(row, "DOT_SRFTYP", row.SURFTYPE, countyNumber, dictOfValidSurfaceType)
+ValidateAndAssign_FieldValue(row, "STATUS", row.STATUS_, countyNumber, dictOfValidStatus)
 
 ## To parse out full address and check for validated and parsed values, call the function this way...
-if row.ALIAS1 is not None or row.ALIAS1 != "":
-    is_valid_parse, pre_dir, street_name, post_type, post_dir = ParseFullAddress(row.ALIAS1)
-
-    if is_valid_parse == True:
-        # it WAS a valid parse
-        if street_name.isdigit():
-            # the street name is numeric
-            row.AN_NAME = street_name
-            row.AN_POSTDIR = post_dir
-        else:
-            # the streetname is alpha
-            row.A1_PREDIR = pre_dir
-            row.A1_NAME = street_name
-            row.A1_POSTTYPE = post_type
-            row.A1_POSTDIR = post_dir
-    else:
-        # it was NOT a valid parse
-        row.A1_NAME = row.ALIAS1
+# ParseAndAssign_FullAddress(row, field_name_to_parse, bool_primary=False, bool_alias1=False, bool_alias2=False)
+ParseAndAssign_FullAddress(row, "ALIAS1", False, True, False)
