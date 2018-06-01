@@ -4,6 +4,7 @@ ValidateAndAssign_FieldValue(row, "POSTTYPE", row.STREETTYPE, countyNumber, dict
 ValidateAndAssign_FieldValue(row, "ONEWAY", row.ONEWAY_, countyNumber, dictOfValidOneWay)
 ValidateAndAssign_FieldValue(row, "DOT_SRFTYP", row.SURFTYPE, countyNumber, dictOfValidSurfaceType)
 ValidateAndAssign_FieldValue(row, "STATUS", row.STATUS_, countyNumber, dictOfValidStatus)
+ValidateAndAssign_FieldValue(row, "DOT_CLASS", row.CLASS, countyNumber, dictOfValidRoadClass)
 
 ## To parse out full address and check for validated and parsed values, call the function this way...
 # ParseAndAssign_FullAdds(row, field_name_to_parse, bool_primary=False, bool_alias1=False, bool_alias2=False)
