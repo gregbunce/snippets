@@ -19,3 +19,23 @@ VertLevel_TranslateOldDomainToNewDomain(row, old_vert_domain_value, county_numbe
   
 HasValidDirection(field_value):
   """ example: (row.STATUS) """
+  
+## parse-out and validate no-space, numeric address (100N to 100 N)
+numeric_name = ""
+alias_postdir = ""
+if HasFieldValue(row.ACS_ALIAS):
+    numeric_name, alias_postdir = TryToParse100N(row.ACS_ALIAS)
+if numeric_name != "" and alias_postdir != "":
+    # the exapmle value of 100N was parsed
+    row.AN_NAME = numeric_name
+    if HasValidDirection(alias_postdir):
+        row.AN_POSTDIR = alias_postdir
+else:
+    if row.ACS_ALIAS.isdigit():
+        row.AN_NAME = row.ACS_ALIAS
+        
+## Delete row
+if row.S_SURF in (400, 410, 420, 430, 440):
+    rows.deleteRow(row)
+    del row
+
