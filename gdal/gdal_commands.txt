@@ -1,0 +1,9 @@
+gdal/ogr command cheatsheet
+
+--shapefile to geojson
+ogr2ogr -f GeoJSON -t_srs crs:84 C:\\temp\output.geojson C:\temp\input.shp
+
+--geojson to postgis
+>ogr2ogr -f "PostgreSQL" PG:"dbname=my_database user=postgres password=******" "C:\temp\input.geojson"
+
+
