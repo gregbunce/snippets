@@ -1,4 +1,4 @@
-gdal/ogr command cheatsheet
+gdal/ogr command cheatsheet (use OSGeo4W Shell)
 
 --shapefile to geojson
 ogr2ogr -f GeoJSON -t_srs crs:84 C:\\temp\output.geojson C:\temp\input.shp
@@ -6,4 +6,5 @@ ogr2ogr -f GeoJSON -t_srs crs:84 C:\\temp\output.geojson C:\temp\input.shp
 --geojson to postgis
 >ogr2ogr -f "PostgreSQL" PG:"dbname=my_database user=postgres password=******" "C:\temp\input.geojson"
 
-
+--export postgis to shapefile
+ogr2ogr -f "ESRI Shapefile" c:\temp\vista_pct.shp PG:"host=opensgid.agrc.utah.gov user=agrc dbname=opensgid password=agrc" "political.vista_ballot_areas"
