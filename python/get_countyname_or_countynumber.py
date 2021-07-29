@@ -1,5 +1,3 @@
-import arcpy
-
 #: Pass in county number and get county name.
 def get_countyname(county_number):
     county_name = ''
